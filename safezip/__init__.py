@@ -5,8 +5,14 @@ import pyzipper
 
 
 class ResponseLike(Protocol):
-    status_code: int
-    content: bytes
+
+    @property
+    def status_code(self) -> int:
+        ...
+
+    @property
+    def content(self) -> bytes:
+        ...
 
 
 class SafeZip:
