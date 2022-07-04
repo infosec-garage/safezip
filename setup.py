@@ -35,9 +35,10 @@ CONSOLE_SCRIPTS: List[str] = [
 # Package requirements/dependencies.
 # List your requirements here.
 REQUIREMENTS: List[str] = [
-    # "click",  # Recommended command line utility for building your own CLI tools.
-    # "pydantic", # Recommended way to work with data objects in python.
-    # "httpx", # Like python requests, but also supporting async calls.
+    # "click",   # Recommended command line utility for building your own CLI tools.
+    # "pydantic",  # Recommended way to work with data objects in python.
+    # "httpx",  # Like python requests, but also supporting async calls.
+    "pyzipper",  # A replacement for Python's zipfile that can read and write AES encrypted zip files.
 ]
 
 # Testing requirements are listed here.
