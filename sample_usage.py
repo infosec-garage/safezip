@@ -15,6 +15,5 @@ sz.add_from_bytes(input_file.read_bytes(), input_file_name)
 sz.add_from_http_response(requests.get('http://example.com'), "example-com.html")
 
 # Write the ZIP file
-zip_file_name = "encrypted.zip"
-zip_output_file = Path(zip_file_name)
+zip_output_file = Path("encrypted.zip")
 zip_output_file.write_bytes(sz.get_bytes())
