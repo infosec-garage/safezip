@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""Tests for `inmemoryzipper` package."""
+"""Tests for `safezip` package."""
 
 import pytest
 

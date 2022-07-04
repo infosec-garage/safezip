@@ -12,11 +12,11 @@ from typing import List
 from setuptools import find_packages, setup
 
 # Base Parameters
-PACKAGE_NAME = "inmemoryzipper"
-AUTHOR = "IBM MSS MDR DevSecOps"
-AUTHOR_EMAIL = "mdr-threat-hunt@wwpdl.vnet.ibm.com"
+PACKAGE_NAME = "safezip"
+AUTHOR = "InfoSec Garage Dev Team"
+AUTHOR_EMAIL = 'devs@infosec-garage.org'
 DESCRIPTION = "Create an in-memory zip file."
-PROJECT_URL = "https://github.ibm.com/mss-mdr-code/in-memory-zipper"
+PROJECT_URL = "https://github.com/infosec-garage/safezip"
 # Set version  here.
 # The version will be compiled as <MAJOR>.<MINOR>.<MICRO>.
 V_MAJOR = 0  # Major version
@@ -26,10 +26,10 @@ V_MICRO_DEFAULT = 0  # This is the default Micro version, if left to 0, it will 
 # Add your commands (console scripts) below.
 # An entry has to be formulated this way:
 # `<command-name>=<python-module.python-submodule:function>`
-# For instance: "inmemoryzipper=inmemoryzipper:cli"
+# For instance: "safezip=safezip:cli"
 # where `cli` is a method exposed in your package.
-CONSOLE_SCRIPTS = [
-    #   "inmemoryzipper=inmemoryzipper:cli",
+CONSOLE_SCRIPTS: List[str] = [
+    #   "safezip=safezip:cli",
 ]
 
 # Package requirements/dependencies.
@@ -41,7 +41,7 @@ REQUIREMENTS: List[str] = [
 ]
 
 # Testing requirements are listed here.
-# Install with `pip install inmemoryzipper[test]`
+# Install with `pip install safezip[test]`
 REQUIREMENTS_TEST: List[str] = [
     "pytest",
     "pytest-cov",
@@ -49,7 +49,7 @@ REQUIREMENTS_TEST: List[str] = [
 ]
 
 # Development requirements are listed here.
-# Install with `pip install inmemoryzipper[dev]`
+# Install with `pip install safezip[dev]`
 # This will include testing requirements above automatically.
 REQUIREMENTS_DEV: List[str] = [
     "twine",
@@ -64,7 +64,7 @@ REQUIREMENTS_DEV: List[str] = [
 ]
 
 # Documentation generation requirements
-# Install with `pip install inmemoryzipper[doc]`
+# Install with `pip install safezip[doc]`
 # You only need to install these if you plan to develop/troubleshoot documentation generation locally.
 REQUIREMENTS_DOC: List[str] = [
     "Sphinx==4.0.1",

@@ -1,17 +1,17 @@
-# In-Memory Zipper (inmemoryzipper)
+# Safe ZIP
 Create an in-memory zip file.
 
-Welcome to the In-Memory Zipper documentation.
+Welcome to the Safe ZIP documentation.
 
 
 ## Installation
 
 The package is made available in the MDR Package index,
-as such it can be installed with `pip install inmemoryzipper`.
+as such it can be installed with `pip install safezip`.
 
 ### For developers
 
-You can install an editable version of inmemoryzipper by cloning this repository locally
+You can install an editable version of safezip by cloning this repository locally
 and then from within the repository root run:
 ```bash
 pip install -e .[dev]
@@ -25,7 +25,7 @@ this can be done by running `pytest -v` in the root of the repository.
 
 ## API Documentation
 
-Auto-generated API documentation is available at https://pages.github.ibm.com/mss-mdr-code/in-memory-zipper
+Auto-generated API documentation is available at https://pages.github.com/infosec-garage/safezip
 
 
 ## Sample usage

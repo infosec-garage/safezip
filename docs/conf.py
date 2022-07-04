@@ -17,9 +17,9 @@ sys.path.insert(0, os.path.abspath('.'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'In-Memory Zipper'
-copyright = '2021, IBM MSS MDR DevSecOps'
-author = 'IBM MSS MDR DevSecOps'
+project = 'Safe ZIP'
+copyright = '2022, InfoSec Garage'
+author = 'InfoSec Garage Dev Team'
 
 
 # -- General configuration ---------------------------------------------------
@@ -90,7 +90,7 @@ html_sidebars = {
     ]
 }
 autoapi_modules = {
-    'inmemoryzipper': {
+    'safezip': {
         'output': 'api'
     }
 }

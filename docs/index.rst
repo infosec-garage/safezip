@@ -7,8 +7,8 @@ In-Memory Zipper
    :hidden:
 
    self
-   API <api/inmemoryzipper>
-   GitHub project <https://github.ibm.com/mss-mdr-code/in-memory-zipper>
+   API <api/safezip>
+   GitHub project <https://github.com/infosec-garage/safezip>
 .. Please update the url if it is wrong,.
  
 
@@ -28,7 +28,7 @@ Sample usage
 Top Level Exposed components
 ============================
 
-.. automodule:: inmemoryzipper
+.. automodule:: safezip
    :noindex:
 
 
