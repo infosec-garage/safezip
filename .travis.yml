@@ -1,0 +1,52 @@
+# In order to set up Travis, enable the Repository on https://travis.ibm.com
+# In general, travis will need some environment variables to be configured:
+#  - Package Deployment: ARTIFACTORY_USERNAME & ARTIFACTORY_PASSWORD
+#    These are used for package deployment on Artifactory (https://na.artifactory.swg-devops.com)
+#    Use your IBM email for USERNAME, and the API-token for PASSWORD (https://na.artifactory.swg-devops.com/ui/admin/artifactory/user_profile)
+#  - Github Pages Generation for Auto-documentaton: GITHUB_TOKEN
+#    By default, the python package template comes with a sphinx based documentation generation.
+#    Travis will deploy the documentation to the dedicated gh-pages branch. For this it will need a Github API token with the full 'repo' scope.
+#    (https://github.ibm.com/settings/tokens)
+#
+language: python
+python:
+  - "3.9"
+cache: pip
+env:
+  - PIP_INDEX_URL=https://${ARTIFACTORY_USERNAME}:${ARTIFACTORY_PASSWORD}@na.artifactory.swg-devops.com/artifactory/api/pypi/hyc-mss-mdr-team-pypi-virtual/simple
+jobs:
+  include:
+    - stage: "Pytest Unit Tests"
+      install: pip install -e .[test]
+      script: pytest -vvv
+
+    - stage: "Artifactory MDR Pypi Release"
+      if: branch IN (master, main) and type = push
+      script: echo "Deploying to Artifactory."
+      deploy:
+        provider: pypi
+        username: ${ARTIFACTORY_USERNAME}
+        password: ${ARTIFACTORY_PASSWORD}
+        distributions: "sdist bdist_wheel"
+        server: https://na.artifactory.swg-devops.com/artifactory/api/pypi/hyc-mss-mdr-team-pypi-virtual
+        on:
+          all_branches: true
+
+    - stage: "Release documentation"
+      if: branch IN (master, main) and type = push
+      before_install:
+        - sudo apt-get update
+        - sudo apt-get install graphviz
+      script:
+        - pip install .[doc]
+        - cd docs && make html
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        local_dir: docs/_build/html
+        github_token: $GITHUB_TOKEN # Set in the settings page of your repository, as a secure variable
+        keep_history: false
+        github_url: github.ibm.com
+        verbose: true
+        on:
+          all_branches: true
