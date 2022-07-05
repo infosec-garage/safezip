@@ -49,7 +49,7 @@ class SafeZip:
             raise BytesWarning("HTTP {}: unable to retrieve data. Skipping bytes.".format(data.status_code))
 
     def close(self):
-        """Close """
+        """Close `pyzipper` object."""
         self.zf.close()
 
     def __enter__(self):
